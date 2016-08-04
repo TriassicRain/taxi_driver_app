@@ -1,11 +1,9 @@
-const request           = require('request');
-const ENIGMA_KEY        =process.env.ENIGMA_KEY
-
+const request  = require('request');
 
 module.exports = {
   dataReturn (req,res,next){
     console.log('Made it to model')
-    const url1 = 'https://localhost:4000/predict'
+    const url1 = 'http://localhost:4000/predict'
 
     let lat = req.query.lat;
     let lng = req.query.lng;
@@ -24,7 +22,8 @@ module.exports = {
     }, function(err,response,body){
       if(err) throw err;
       let price = JSON.parse(body);
-      res.results = price.result;
+      res.results = price;
+      console.log(res.results)
       next()
     })
   }
