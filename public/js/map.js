@@ -18,37 +18,9 @@ function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: minZoomLevel,
-    center: new google.maps.LatLng(40.663920, -73.938353),
+    center: new google.maps.LatLng(40.771833, -73.975596),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
-
-  // Bounds for North America
-  var strictBounds = new google.maps.LatLngBounds(
-   new google.maps.LatLng(40.917577, -74.25909),
-   new google.maps.LatLng(40.588280, -73.712911)
-  );
-
-  // Listen for the dragend event
-  // google.maps.event.addListener(map, 'dragend', function() {
-  //  if (strictBounds.contains(map.getCenter())) return;
-
-  //  // We're out of bounds - Move the map back within the bounds
-
-  //  var c = map.getCenter(),
-  //      x = c.lng(),
-  //      y = c.lat(),
-  //      maxX = strictBounds.getNorthEast().lng(),
-  //      maxY = strictBounds.getNorthEast().lat(),
-  //      minX = strictBounds.getSouthWest().lng(),
-  //      minY = strictBounds.getSouthWest().lat();
-
-  //  if (x < minX) x = minX;
-  //  if (x > maxX) x = maxX;
-  //  if (y < minY) y = minY;
-  //  if (y > maxY) y = maxY;
-
-  //  map.setCenter(new google.maps.LatLng(y, x));
-  // });
 
    // Limit the zoom level
    google.maps.event.addListener(map, 'zoom_changed', function() {
