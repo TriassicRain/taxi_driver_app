@@ -5,24 +5,24 @@ const ENIGMA_KEY        =process.env.ENIGMA_KEY
 module.exports = {
   dataReturn (req,res,next){
     console.log('Made it to model')
-    const url1 = 'https://localhost:4000'
-    // const datapath = '/us.gov.senate.publicrecords.lobbying.lobbying'
-    // const fullURL = url1 + ENIGMA_KEY + datapath
+    const url1 = 'https://localhost:4000/result'
 
-    // request.get({
-    //   url: fullURL,
-    //   qs: {
-    //     'search': '@client_name(Google|Vivendi)',
-    //     'select': 'client_name, year, amount,transaction_id,client_parent_name,serialid'
-    //   }
+    let lat = req.query.lat;
+    let lng = req.query.lng;
+    let time = req.query.time;
 
-    // }, function(err, response, body){
-    //   if(err) throw err;
-    //   let companies = JSON.parse(body);
-    //   res.results = companies.result;
-    //   next()
-    // })
-
-
-}
+    request.get({
+      url: url1,
+      qs: {
+        'lat': lat,
+        'lng': lng,
+        'time': time
+      }
+    }, function(err,response,body){
+      if(err) throw err;
+      let price = JSON.parse(body);
+      res.results = price.result;
+      next()
+    })
+  }
 }

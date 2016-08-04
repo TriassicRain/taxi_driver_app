@@ -18,6 +18,17 @@ function initMap() {
     console.log("Lat and Long: ",lat,lng);
 
     // ajax call goes here
+    $.ajax({
+      url: '/results',
+      data: {
+        'lat': lat,
+        'lng': lng,
+        'time': 7
+      },
+      method: 'GET'
+    },function(data){
+      console.log(data)
+    })
 
     var marker = new google.maps.Marker({
       position: {lat: e.latLng.lat(), lng: e.latLng.lng()},
