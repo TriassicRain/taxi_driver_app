@@ -27,6 +27,37 @@ function initMap() {
      if (map.getZoom() < minZoomLevel) map.setZoom(minZoomLevel);
    });
 
+    // function placeMarker(location) {
+    //   if ( marker ) {
+    //     marker.setPosition(location);
+    //   } else {
+    //     marker = new google.maps.Marker({
+    //       position: location,
+    //       map: map
+    //     });
+    //   }
+    // }
+
+  // google.maps.event.addListener(map, 'click', function(event) {
+  //   placeMarker(event.latLng);
+
+  //   console.log(event.latLng);
+
+  //   $.ajax({
+  //     url: '/results',
+  //     data: {
+  //       'lat': lat,
+  //       'lng': lng,
+  //       'time': 7
+  //     },
+  //     method: 'GET'
+  //   },function(data){
+  //     console.log(data)
+  //   });
+    // var marker;
+
+  // });
+
   map.addListener('click', function(e) {
     let lat = e.latLng.lat();
     let lng = e.latLng.lng();
@@ -49,5 +80,6 @@ function initMap() {
       position: {lat: e.latLng.lat(), lng: e.latLng.lng()},
       map: map
     });
+
   });
 }
