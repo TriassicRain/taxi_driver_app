@@ -10,12 +10,15 @@ module.exports = {
     let lat = req.query.lat;
     let lng = req.query.lng;
     let time = req.query.time;
+    console.log(lat)
+    console.log(lng)
+    console.log(time)
 
     request.get({
       url: url1,
       qs: {
         'pickup_lat': lat,
-        'pickup_long': lng,
+        'pickup_lon': lng,
         'hour': time
       }
     }, function(err,response,body){
