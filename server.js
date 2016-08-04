@@ -18,11 +18,8 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use('/', homeRoute);
 app.use('/results', resultsRoute);
-app.get('/dummydata', function(req,res){
-  res.send('{"price": "3.50"}')
-})
+app.use('/', homeRoute);
 
 app.listen(port, function() {
   console.log('Server is listening on ',port);
