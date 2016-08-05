@@ -1,19 +1,5 @@
 function initMap() {
-  // var map = new google.maps.Map(document.getElementById('map'), {
-  //   center: {lat: 0, lng: 0},
-  //   zoom: 3,
-  //   styles: [{
-  //     featureType: 'poi',
-  //     stylers: [{ visibility: 'off' }]  // Turn off points of interest.
-  //   }, {
-  //     featureType: 'transit.station',
-  //     stylers: [{ visibility: 'off' }]  // Turn off bus stations, train stations, etc.
-  //   }],
-  //   disableDoubleClickZoom: true
-  // });
 
-  /* Thanks to http://stackoverflow.com/questions/3818016/google-maps-v3-limit-viewable-area-and-zoom-level for limiting zoom */
-  // This is the minimum zoom level that we'll allow
   var minZoomLevel = 11;
 
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -27,54 +13,14 @@ function initMap() {
      if (map.getZoom() < minZoomLevel) map.setZoom(minZoomLevel);
    });
 
-    // function placeMarker(location) {
-    //   if ( marker ) {
-    //     marker.setPosition(location);
-    //   } else {
-    //     marker = new google.maps.Marker({
-    //       position: location,
-    //       map: map
-    //     });
-    //   }
-    // }
-
-  // google.maps.event.addListener(map, 'click', function(event) {
-  //   placeMarker(event.latLng);
-
-  //   console.log(event.latLng);
-
-  //   $.ajax({
-  //     url: '/results',
-  //     data: {
-  //       'lat': lat,
-  //       'lng': lng,
-  //       'time': 7
-  //     },
-  //     method: 'GET'
-  //   },function(data){
-  //     console.log(data)
-  //   });
-    // var marker;
-
-  // });
-
   map.addListener('click', function(e) {
     let lat = e.latLng.lat();
     let lng = e.latLng.lng();
-    console.log("Lat and Long: ",lat,lng);
 
-    // ajax call goes here
-    $.ajax({
-      url: '/results',
-      data: {
-        'lat': lat,
-        'lng': lng,
-        'time': 7
-      },
-      method: 'GET'
-    },function(data){
-      console.log(data)
-    })
+    localStorage.setItem('lat', lat)
+    localStorage.setItem('lng', lng)
+
+    console.log("Lat and Long: ",lat,lng);
 
     var marker = new google.maps.Marker({
       position: {lat: e.latLng.lat(), lng: e.latLng.lng()},

@@ -1,0 +1,48 @@
+* {
+  text-align: center;
+  font-family: 'Passion One';
+}
+
+#header {
+  height: 130px;
+  width: 570px;
+  background-color: goldenrod;
+  margin: 0 auto;
+  border-top-right-radius: 20%;
+  border-top-left-radius: 20%;
+}
+
+h1 {
+  font-size: 100px;
+  padding: 15px;
+  text-shadow: 2px 2px white
+}
+
+h2 {
+  margin: 10px;
+}
+
+#map {
+  height: 800px;
+  width: 800px;
+  margin: 30px auto;
+}
+
+#timedrop {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 30px;
+  width: 90px;
+  font-size: 20px;
+  padding: 4px 10px;
+}
+
+#submit {
+  background-color: gold;
+  margin: 10px;
+  height: 50px;
+  width: 110px;
+  border-radius: 8%;
+  font-size: 30px;
+  text-shadow: 2px 2px white;
+}
