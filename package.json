@@ -19,6 +19,7 @@
   "homepage": "https://github.com/johnsigmon/taxi_app#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "method-override": "^2.3.6",
